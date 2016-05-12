@@ -1,4 +1,4 @@
-cubby
+cubby [![Build Status](https://travis-ci.org/VeriShip/cubby.svg?branch=master)](https://travis-ci.org/VeriShip/cubby)
 =====
 
 Cubby is a command line tool used to help make interacting with [Hashicorp's Vault](https://github.com/hashicorp/vault) cubbyhold pattern much less painful.
