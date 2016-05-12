@@ -46,7 +46,7 @@ class Program
 			.then (result) =>
 				@requestor.request(
 					@requestor.createRequestOptions(
-						"/v1/cubbyhole/perm",
+						"/v1/cubbyhole/token",
 						"POST",
 						null,
 						@tempToken),

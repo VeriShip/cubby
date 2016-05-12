@@ -34,7 +34,7 @@ Installation
 
 Usage
 -----
-	cubby help
+	cubby -help
 
 	[options]
 	-t, --ttl:		The time to live for the temporary token. (Default 15m)

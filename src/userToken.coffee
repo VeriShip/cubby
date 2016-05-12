@@ -1,12 +1,13 @@
 fs = require 'fs'
 path = require 'path'
+os = require 'os'
 
 class UserToken
-	constructor: (fsObj, processObj) ->
+	constructor: (fsObj, osObj) ->
 		@fs = fsObj ? fs
-		@process = processObj ? process
+		@os = osObj ? os
 	get: ->
-		tokenPath = path.join(@process.env["HOME"], '.vault-token')
+		tokenPath = path.join(@os.homedir(), '.vault-token')
 		if not @fs.existsSync(tokenPath)
 			throw new Error "You are not authenticated with vault.  (~/.vault-token does not exist)"
 
