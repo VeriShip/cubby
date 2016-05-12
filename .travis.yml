@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+- '4'
+- '5'
+- '6'
+before_script:
+- npm install
+script:
+- npm run test
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: npm@niteoholdings.com
+  api_key:
+    secure: FQnQNM2VmB/SjNGwnH+JfD92HudQ3qQyuzsaIm/62HbSbHKTqzG0NtJLH0HnQOY4cleSEjVKY/id1yqn97fnZ2Fi4iRSoLkGgv97JuyRRuu9upLV4LhtFon8iTBq+ovkod2bIikbtVBDzgUbUN/SHRXImqTYNJTpkP3sfTjn8ML/3Y/Bf4vqHDGSEojKy23K1BCxhlcQSMSS7nafeWAwMN4DCnxPbUZBfT3XZX+UltP+nBOJJpwJ9959im04GgBnNC6znPVbQnNMBqjOl77/S1UeLvKOFv15SQp3Kz7bqdbXm+OoAbr2TllhiFXqPwjU0wg2qS5u4WgwFw3HqRD2hN/1rn68FSE+rgp6PplAoR7XbJ5V0a3AnPUPiBHVqO2JguzOzSZxEwFVr5tJkNV9GHDxfoywkgUsnGUcs1o1qc4/1bYmcgj01gPUQ/tHHFCO4zFCq0KvO/7yGeBu4dbpxGgupDUpqoLjvvAktVd6hiMT3waBUIf6Lt45oOkFMEF5lhlapDYz4EQoDNb6Yeq5CgOk0AMCNasi64ys7jj7CJBjFbv2eDzkhfDFleBZG2tUQ5jEsgfV/bQ4+2yWzgYdPQVh+vXSi1bBrlvvr2H1I0J66jgO06SHC0WjYpYxqIq8W/vGLB7iXYZhhRMxK4gqyctanrEMqQFmZ9TbuY3cCos=
+  on:
+    tags: true
+    all_branches: master
+    repo: VeriShip/cubby
+    node: '4'
