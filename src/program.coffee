@@ -3,13 +3,32 @@
 requestor = require './requestor'
 userToken = require './userToken'
 q = require 'q'
+check = require 'check-types'
+string = require 'string'
 
 class Program
 	constructor: (requestorObj, userTokenObj) ->
 		@requestor = requestorObj ? new requestor()
 		@userToken = userTokenObj ? new userToken()
 
-	go: (ttl, policyCollection) =>
+	go: (path, ttl, policyCollection) =>
+
+		if not path?
+			throw Error "You must supply a cubby hole path."
+		if not check.string path
+			throw Error "You must supply a string for the cubby hole path."
+
+		if not ttl?
+			throw Error "You must supply a ttl."
+		if not check.string ttl
+			throw Error "You must supply a string for ttl."
+
+		if not policyCollection?
+			throw Error "You must supply a policyCollection."
+		if not check.array.of.string policyCollection
+			throw Error "You must supply an array of strings for policyCollection."
+
+		cubbyholePath = "/v1/cubbyhole#{string(path).ensureLeft('/').s}"
 		
 		@requestor.request(
 			#	Create the temporary token with the
@@ -46,7 +65,7 @@ class Program
 			.then (result) =>
 				@requestor.request(
 					@requestor.createRequestOptions(
-						"/v1/cubbyhole/token",
+						cubbyholePath,
 						"POST",
 						null,
 						@tempToken),

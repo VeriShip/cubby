@@ -30,7 +30,7 @@ describe 'UserToken', ->
 				"/somepath"
 
 		it 'should return some token', ->
-			target = new UserToken(new FSStub(), new OsStub)
+			target = new UserToken(new FSStub(), new OsStub())
 			should.equal(target.get(), "some token")
 
 		it 'should throw an error if the ".vault-token" file doesn\'t exist', ->
