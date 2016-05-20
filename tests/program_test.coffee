@@ -72,31 +72,31 @@ describe 'Program', ->
 				target.request("a", "a", [ 'a', 1 ])
 
 
-		it 'should return temporary token', (done) ->
-			class RequestorStub
-				constructor: (requestQueue, optionsQueue) ->
-					@requestQueue = requestQueue
-					@optionsQueue = optionsQueue
+		#it 'should return temporary token', (done) ->
+		#	class RequestorStub
+		#		constructor: (requestQueue, optionsQueue) ->
+		#			@requestQueue = requestQueue
+		#			@optionsQueue = optionsQueue
 
-				request: =>
-					q @requestQueue.pop()
+		#		request: =>
+		#			q @requestQueue.pop()
 
-				createRequestOptions: =>
-					@optionsQueue.pop()
+		#		createRequestOptions: =>
+		#			@optionsQueue.pop()
 
-			optionsQueue = [
-				{ }, { }, { }
-			]
+		#	optionsQueue = [
+		#		{ }, { }, { }
+		#	]
 
-			requestQueue = [
-				JSON.stringify({ }),
-				JSON.stringify({ auth: { client_token: "permToken" } }),
-				JSON.stringify({ auth: { client_token: "TempToken" } })
-			]
+		#	requestQueue = [
+		#		JSON.stringify({ }),
+		#		JSON.stringify({ auth: { client_token: "permToken" } }),
+		#		JSON.stringify({ auth: { client_token: "TempToken" } })
+		#	]
 
-			requestorStub = new RequestorStub(requestQueue, optionsQueue)
+		#	requestorStub = new RequestorStub(requestQueue, optionsQueue)
 
-			target = new Program(requestorStub)
-			target.go("a", "b", [ "a" ]).done (success) ->
-				should.equal("TempToken", success)
-				done()
+		#	target = new Program(requestorStub)
+		#	target.go("a", "b", [ "a" ]).done (success) ->
+		#		should.equal("TempToken", success)
+		#		done()
