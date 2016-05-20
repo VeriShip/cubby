@@ -1,6 +1,6 @@
 {
   "name": "vs-cubby",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tool to help make it easier to interact with the cubby hole pattern and HashiCorp Vault",
   "main": "bin/src/index.js",
   "keywords": [

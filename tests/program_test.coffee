@@ -72,6 +72,8 @@ describe 'Program', ->
 				target.request("a", "a", [ 'a', 1 ])
 
 
+		#	This test is failing the build on debian (travis-ci)
+		#
 		#it 'should return temporary token', (done) ->
 		#	class RequestorStub
 		#		constructor: (requestQueue, optionsQueue) ->
